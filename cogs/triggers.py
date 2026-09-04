@@ -24,6 +24,8 @@ KING_SELF_GIF = os.path.join(KING_DIR, "self.gif")
 KING_KURI_GIF = os.path.join(KING_DIR, "kuri.gif")
 KING_GLOB = os.path.join(KING_DIR, "king*.gif")
 
+FURY_DIR = data_path(os.path.join("assets", "fury"))
+FURY_PICTURE = os.path.join(FURY_DIR, "fury.png")
 
 class Triggers(commands.Cog):
     def __init__(self, bot):
@@ -52,6 +54,11 @@ class Triggers(commands.Cog):
     async def sex(self, ctx):
         """Post a YouTube video."""
         await ctx.reply("https://www.youtube.com/watch?v=ce4IzbEQyNo")
+
+    @commands.command(name="fury")
+    async def fury(self, ctx):
+        """Post an image."""
+        await ctx.reply(file=discord.File(FURY_PICTURE))
 
     @commands.command(name="king")
     async def king(self, ctx, member: discord.Member = None):
